@@ -13,7 +13,6 @@ long getRSSI(int Wifi_number);// In this function, we connect to that specific w
 struct Wifi_Station{
     Position wifi_position;
     string SSID;
-    string password;
     float constantA;
 };
 

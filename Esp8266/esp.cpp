@@ -8,9 +8,17 @@ https://iotandelectronics.wordpress.com/2016/10/07/how-to-calculate-distance-fro
 */
 #include "esp.h"
 
+void init_using_esp(){
+  
+}
+
 void initwifi()
 {
-  
+  init_using_esp();
+  for(int i=0;i<3;i++){
+    int temp=distance_between(Start,Stations[i]);
+    Stations[i].constantA -= 20*log10(temp);
+  }
 }
 
 
