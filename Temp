@@ -1,0 +1,37 @@
+ structures :
+
+ rplidar_response_device_health_t:
+        func : getHealth(healthinfo)
+
+
+typedef struct _rplidar_response_device_health_t {
+    _u8   status;
+    _u16  error_code;
+} __attribute__((packed)) rplidar_response_device_health_t;
+
+
+ rplidar_response_measurement_node_hq_t :
+typedef struct rplidar_response_measurement_node_hq_t {
+    _u16   angle_z_q14; 
+    _u32   dist_mm_q2; 
+    _u8    quality;  
+    _u8    flag;
+} __attribute__((packed)) rplidar_response_measurement_node_hq_t;
+
+
+ RPlidardriver :
+        func:
+        startMotor();
+        startScan(0,1);
+        grabScanDataHq(nodes, count);
+        stop();
+        stopMotor();
+
+
+
+
+
+
+
+// Test continuous.cpp
+// Test pwm_test.cpp
