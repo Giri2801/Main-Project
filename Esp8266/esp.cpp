@@ -8,7 +8,9 @@ https://iotandelectronics.wordpress.com/2016/10/07/how-to-calculate-distance-fro
 */
 #include "esp.h"
 
-void init_using_esp(){
+
+void init_using_esp()
+{
   
 }
 
@@ -44,13 +46,15 @@ long getRSSI(int Wifi_number)
      return rssi;
 }
 
-int getDistance(long RSSI,int Wifi_number){
+int getDistance(long RSSI,int Wifi_number)
+{
     //Use formula to get distance
     return (int)power(10,(Stations[Wifi_number].constantA-RSSI)/20)
 }
 
 
-Line getLine(Position p1,int d1,Position p2,int d2){
+Line getLine(Position p1,int d1,Position p2,int d2)
+{
    Line L;
    L.a = 2*(p2.x - p1.x);
    L.b = 2*(p2.y - p1.y);
@@ -58,8 +62,11 @@ Line getLine(Position p1,int d1,Position p2,int d2){
 }
 
 
-Position getCurrentPosition(){
+Position getCurrentPosition()
+{
     int d[3];
+    long arr[3];
+    
     for(int i=0;i<3;i++){
         long rssi_val;
         rssi_val=getRSSI(i);
