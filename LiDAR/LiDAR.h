@@ -3,9 +3,8 @@ stopscan()
 checkhealth()*/
 // study SDK & try to update arr
 #include"defines.h"
-void stopLiDAR();
-vector<int> scandata();
-
+std::vector<int> scandata();
+bool ishealthok();
 
 
 
