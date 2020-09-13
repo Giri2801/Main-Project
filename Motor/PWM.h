@@ -5,8 +5,8 @@
 #define FORWARD 0
 #define RIGHT 1
 #define LEFT 2 
-#define SPEED                 // write some constant
-#define ANGULAR_VELOCITY      // write some constant
+#define SPEED      0.5312           // write some constant
+#define ANGULAR_VELOCITY  0.9    // write some constant
 
 
 
