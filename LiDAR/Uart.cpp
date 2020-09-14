@@ -53,7 +53,7 @@ std::vector<rplidar_response_node> getscan()
     std::vector< rplidar_response_node > RPLIDAR_response;
     int baud_rate = 115200;
     set_baud_rate(UART,baud_rate);
-    flush_uartrplidar_response_node(UART);
+    flush_uart(UART);
     std::string s = request_for_scan();
     char S[3];
     S[0] = s[0];S[1] = s[1]; S[2] = '\0';
