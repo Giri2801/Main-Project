@@ -1,13 +1,13 @@
-#include"../defines.h"
-
-std::string request_for_stop();
+#include <stdio.h>
+#include <string>
+#include <vector>
+#include <cassert>
+#include "uart.h"
+std::string request_for_idlestate();
 std::string request_for_reset();
 std::string request_for_scan();
-std::string request_for_getinfo();
 std::string request_for_gethealth();
-std::vector<rplidar_response_node> getscan();
-void reset();
-rplidar_response_device_health gethealth();
+
 
 typedef struct rplidar_response_node {
     unsigned short int   angle_of_obstacle; 
@@ -21,3 +21,8 @@ typedef struct rplidar_response_device_health {
     unsigned short int  error_code;
 } __attribute__((packed)) rplidar_response_device_health;
 
+
+std::vector<rplidar_response_node> getscan();
+void goto_idle_state();
+void reset();
+rplidar_response_device_health gethealth();

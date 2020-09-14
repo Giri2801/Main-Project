@@ -2,7 +2,10 @@
 stopscan()
 checkhealth()*/
 // study SDK & try to update arr
-#include"defines.h"
+#include <stdio.h>
+#include <string>
+#include <vector>
+#include <cassert>
 std::vector<int> scandata();
 bool ishealthok();
 

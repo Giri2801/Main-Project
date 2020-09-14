@@ -5,7 +5,7 @@
 #include <string>
 #include <vector>
 #include <set>
-#include <utility> 
+#include <cassert> 
 
 #define Distance int // distance in mm
 #define Angle int //angle (between [0,360])
@@ -13,8 +13,9 @@
 #define min_allowed_obstacle_dist 100
 
 class Position {
+public :
   int x,y;
-  Position(int x = -1,int y=-1): x , y {}
+  Position(int x = -1,int y=-1): x(x) , y(y) {}
 };
 
 Distance distance_between(Position p1,Position p2)

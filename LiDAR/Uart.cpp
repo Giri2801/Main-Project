@@ -5,8 +5,8 @@ char arr[] = {(char)(0xA5),(char)(0x5A), (char)(0x5),(char)(0x0),(char)(0x0) ,(c
 
 char arr1[] = {(char)(0xA5),(char)(0x5A), (char)(0x3),(char)(0x0),(char)(0x0) ,(char)(0x0) ,(char)(0x6)};
 
-const string GET_SCAN_RESPONSE_DESCRIPTOR(arr);
-const string GET_HEALTH_RESPONSE_DESCRIPTOR (arr1);
+const std::string GET_SCAN_RESPONSE_DESCRIPTOR(arr);
+const std::string GET_HEALTH_RESPONSE_DESCRIPTOR (arr1);
 
 
 std::string request_for_idlestate()
@@ -21,7 +21,7 @@ std::string request_for_reset()
 {
   std::string arr ;
   arr.push_back((char)(0xA5));
-  arr.push_back(((char)(0x40));
+  arr.push_back((char)(0x40));
   return arr;
 }
 
@@ -53,9 +53,9 @@ std::vector<rplidar_response_node> getscan()
     std::vector< rplidar_response_node > RPLIDAR_response;
     int baud_rate = 115200;
     set_baud_rate(UART,baud_rate);
-    flush_uart(UART);
+   // flush_uart(UART);
     std::string s = request_for_scan();
-    char S[3];
+    uint8_t S[3];
     S[0] = s[0];S[1] = s[1]; S[2] = '\0';
     write_uart_string(UART,S);
 // first we will be getting response descriptor 
@@ -124,15 +124,15 @@ std::vector<rplidar_response_node> getscan()
 void reset()
 {
     std::string s = request_for_reset();
-    char S[3];
+    uint8_t S[3];
     S[0] = s[0];S[1] = s[1]; S[2] = '\0';
     write_uart_string(UART,S);
 }
 
-void goto_idlestate()
+void goto_idle_state()
 {
     std::string s = request_for_idlestate();
-    char S[3];
+    uint8_t S[3];
     S[0] = s[0];S[1] = s[1]; S[2] = '\0';
     write_uart_string(UART,S);
 }
@@ -142,7 +142,7 @@ rplidar_response_device_health gethealth()
   rplidar_response_device_health Health;
   // fill attributes by sending command
   std::string s = request_for_gethealth();
-  char S[3];
+  uint8_t S[3];
   S[0] = s[0];S[1] = s[1]; S[2] = '\0';
   write_uart_string(UART,S);
 // first we will be getting response descriptor 
@@ -167,5 +167,4 @@ rplidar_response_device_health gethealth()
   Health.error_code = (unsigned short int) t1;
   return Health;
 }
-
 
